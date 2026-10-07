@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "author": "Uriel Garcia",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -25,
+      "left": -95,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -155,
+      "left": 120,
+      "attrs": {
+        "temperature": "24",
+        "beta": "3950"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15,
+      "left": 145,
+      "attrs": {
+        "color": "green",
+        "label": "SEND TEMP"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 155,
+      "left": 135,
+      "attrs": {
+        "color": "red",
+        "label": "MQTT LED"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 150,
+      "left": 25,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "ntc1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "h-20",
+        "v40"
+      ]
+    ],
+    [
+      "ntc1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "h-10",
+        "v55"
+      ]
+    ],
+    [
+      "ntc1:OUT",
+      "esp:D34",
+      "green",
+      [
+        "h-45",
+        "v80"
+      ]
+    ],
+    [
+      "btn1:1.l",
+      "esp:3V3",
+      "red",
+      [
+        "h-25",
+        "v-20"
+      ]
+    ],
+    [
+      "btn1:2.r",
+      "esp:D27",
+      "green",
+      [
+        "h-35",
+        "v10"
+      ]
+    ],
+    [
+      "esp:D26",
+      "r1:1",
+      "green",
+      [
+        "h35",
+        "v80"
+      ]
+    ],
+    [
+      "r1:2",
+      "led1:A",
+      "green",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "led1:C",
+      "esp:GND.2",
+      "black",
+      [
+        "h-40",
+        "v-25"
+      ]
+    ]
+  ],
+  "serialMonitor": {
+    "display": "terminal",
+    "newline": "lf"
+  },
+  "dependencies": {}
+}
