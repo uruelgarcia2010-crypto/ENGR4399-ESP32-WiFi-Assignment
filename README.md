@@ -53,3 +53,8 @@ Publish this JSON to `ENGR4399/UrielGarcia/LED`:
 
 ## Notes
 Wokwi's `wokwi-ntc-temperature-sensor` already models a 10k NTC thermistor and a 10k series resistor, so no additional 10k resistor is required in the diagram.
+## Wokwi Simulation
+
+The complete ESP32 WiFi/MQTT/JSON simulation can be viewed and tested here:
+
+https://wokwi.com/projects/477192607104016385
